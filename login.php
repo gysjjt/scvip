@@ -9,14 +9,14 @@ header("Content-Type: text/html;charset=utf-8");
 include_once("curlapi.class.php");
 $curl = new curlapi();
 if($_GET['action'] == "code"){//获取验证码
-	$curl -> url = "http://vip8.sentree.com.cn/shair/vc";
+	$curl -> url = "http://vip8.sentree.com.cn/vc";
 	echo $curl -> get_code();
 }else if($_GET['action'] == "login"){
 	$login = urlencode($_POST['login']);
 	$passwd = $_POST['passwd'];
 	$rand = $_POST['rand'];
 	$params = "login={$login}&passwd={$passwd}&rand={$rand}";
-	$curl -> url = "http://vip8.sentree.com.cn/shair/loginAction!ajaxLogin.action";
+	$curl -> url = "http://vip8.sentree.com.cn/loginAction!ajaxLogin.action";
 	$curl -> params = $params;
 	$result = $curl -> login();
 	$result = json_decode($result,true);
@@ -34,16 +34,16 @@ if($_GET['action'] == "code"){//获取验证码
 	$data = '';
 
     //获取总数
-    $curl -> url = "http://vip8.sentree.com.cn/shair/memberInfo!memberlist.action?set=cash&r=0.3168503969933729";
+    $curl -> url = "http://vip8.sentree.com.cn/memberInfo!memberlist.action?set=cash";
     $rs = $curl -> curl();
     preg_match('/共(.*)条/isU', $rs, $totals);
     $totals = isset($totals[1])?$totals[1]:100;
     //总页数
     $pages = ceil($totals/100);
 	for($i=1; $i<=$pages; $i++){
-		$params = "page.currNum=$i&page.rpp=100&set=cash&r=0.3421386775783387";
+		$params = "page.currNum=$i&page.rpp=100&set=cash";
 		$curl -> params = $params;
-		$curl -> url = "http://vip8.sentree.com.cn/shair/memberInfo!memberlist.action?set=cash&r=0.3168503969933729";
+		$curl -> url = "http://vip8.sentree.com.cn/memberInfo!memberlist.action?set=cash";
 		$pagesData = $curl -> getMembersPage();
 		$data .= $curl ->getMembersInfo($pagesData, $i);
 	};
