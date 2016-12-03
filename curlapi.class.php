@@ -255,8 +255,9 @@ class curlapi{
 		foreach($newdata as &$v){
 			//获取会员备注和欠款
 			$keyword = trim($v[0]);
-			$this -> url = "http://vip8.sentree.com.cn/shair/consumerHelp!find.action?searchType=1&keyType=1&keyword=$keyword";
+			$this -> url = "http://vip8.sentree.com.cn/consumerHelp!find.action?searchType=1&keyType=1&keyword=$keyword";
 			$rs = $this -> curl();
+
 			//会员备注
 			$rules = array(
 				'mark' => array('textarea','html'),
