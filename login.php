@@ -58,7 +58,7 @@ if($_GET['action'] == "code"){//获取验证码
     $data = '';
 
     //获取总数
-    $curl -> url = "http://vip8.sentree.com.cn/shair/timesItem!initTreat.action?set=cash";
+    $curl -> url = "http://vip8.sentree.com.cn/timesItem!initTreat.action?set=cash";
     $rs = $curl -> curl();
     preg_match('/共(.*)条/isU', $rs, $totals);
     $totals = isset($totals[1])?$totals[1]:100;
