@@ -62,12 +62,13 @@ if($_GET['action'] == "code"){//获取验证码
     $rs = $curl -> curl();
     preg_match('/共(.*)条/isU', $rs, $totals);
     $totals = isset($totals[1])?$totals[1]:100;
-    //总页数
+
+	//总页数
     $pages = ceil($totals/100);
     for($i=1; $i<=$pages; $i++){
         $params = "page.currNum=$i&page.rpp=100&set=cash&r=0.3421386775783387";
         $curl -> params = $params;
-        $curl -> url = "http://vip8.sentree.com.cn/shair/timesItem!initTreat.action";
+        $curl -> url = "http://vip8.sentree.com.cn/timesItem!initTreat.action";
         $pagesData = $curl -> getPackagePage();
         $data .= $curl ->getPackageInfo($pagesData, $i);
     };
@@ -80,7 +81,7 @@ if($_GET['action'] == "code"){//获取验证码
 	$data = '';
 
 	//获取员工数据
-	$curl -> url = "http://vip8.sentree.com.cn/shair/employee!employeeInfo.action?set=manage&r=0.5704847458180489";
+	$curl -> url = "http://vip8.sentree.com.cn/employee!employeeInfo.action?set=manage&r=0.5704847458180489";
 	$rs = $curl -> curl();
 
 	$rsBlank = preg_replace("/\s\n\t/","",$rs);
