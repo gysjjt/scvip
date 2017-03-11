@@ -9,7 +9,7 @@ header("Content-Type: text/html;charset=utf-8");
 include_once("curlapi.class.php");
 $curl = new curlapi();
 if($_GET['action'] == "code"){//获取验证码
-	$curl -> url = "http://vip8.sentree.com.cn/vc";
+	$curl -> url = "http://vip8.sentree.com.cn/shair/vc";
 	echo $curl -> get_code();
 }else if($_GET['action'] == "login"){
 	$login = urlencode($_POST['login']);
