@@ -16,7 +16,7 @@ if($_GET['action'] == "code"){//获取验证码
 	$passwd = $_POST['passwd'];
 	$rand = $_POST['rand'];
 	$params = "login={$login}&passwd={$passwd}&rand={$rand}";
-	$curl -> url = "http://vip8.sentree.com.cn/loginAction!ajaxLogin.action";
+	$curl -> url = "http://vip8.sentree.com.cn/shair/loginAction!ajaxLogin.action";
 	$curl -> params = $params;
 	$result = $curl -> login();
 	$result = json_decode($result,true);
@@ -34,7 +34,7 @@ if($_GET['action'] == "code"){//获取验证码
 	$data = '';
 
     //获取总数
-    $curl -> url = "http://vip8.sentree.com.cn/memberInfo!memberlist.action?set=cash";
+    $curl -> url = "http://vip8.sentree.com.cn/shair/memberInfo!memberlist.action?set=cash";
     $rs = $curl -> curl();
     preg_match('/共(.*)条/isU', $rs, $totals);
     $totals = isset($totals[1])?$totals[1]:100;
@@ -43,7 +43,7 @@ if($_GET['action'] == "code"){//获取验证码
 	for($i=1; $i<=$pages; $i++){
 		$params = "page.currNum=$i&page.rpp=100&set=cash";
 		$curl -> params = $params;
-		$curl -> url = "http://vip8.sentree.com.cn/memberInfo!memberlist.action?set=cash";
+		$curl -> url = "http://vip8.sentree.com.cn/shair/memberInfo!memberlist.action?set=cash";
 		$pagesData = $curl -> getMembersPage();
 		$data .= $curl ->getMembersInfo($pagesData, $i);
 	};
@@ -58,7 +58,7 @@ if($_GET['action'] == "code"){//获取验证码
     $data = '';
 
     //获取总数
-    $curl -> url = "http://vip8.sentree.com.cn/timesItem!initTreat.action?set=cash";
+    $curl -> url = "http://vip8.sentree.com.cn/shair/timesItem!initTreat.action?set=cash";
     $rs = $curl -> curl();
     preg_match('/共(.*)条/isU', $rs, $totals);
     $totals = isset($totals[1])?$totals[1]:100;
@@ -68,7 +68,7 @@ if($_GET['action'] == "code"){//获取验证码
     for($i=1; $i<=$pages; $i++){
         $params = "page.currNum=$i&page.rpp=100&set=cash&r=0.3421386775783387";
         $curl -> params = $params;
-        $curl -> url = "http://vip8.sentree.com.cn/timesItem!initTreat.action";
+        $curl -> url = "http://vip8.sentree.com.cn/shair/timesItem!initTreat.action";
         $pagesData = $curl -> getPackagePage();
         $data .= $curl ->getPackageInfo($pagesData, $i);
     };
@@ -81,7 +81,7 @@ if($_GET['action'] == "code"){//获取验证码
 	$data = '';
 
 	//获取员工数据
-	$curl -> url = "http://vip8.sentree.com.cn/employee!employeeInfo.action?set=manage&r=0.5704847458180489";
+	$curl -> url = "http://vip8.sentree.com.cn/shair/employee!employeeInfo.action?set=manage&r=0.5704847458180489";
 	$rs = $curl -> curl();
 
 	$rsBlank = preg_replace("/\s\n\t/","",$rs);
