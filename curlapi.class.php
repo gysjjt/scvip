@@ -146,13 +146,13 @@ class curlapi{
 		$k = 0;
 		foreach ($data as &$item) {
 			$other = explode('</td>', $item['other']);
+
 			if(count($other) > 15) {
 				//unset($other[0]);//去掉第一空白项
                 //unset($other[14]);//去掉14项
                 //unset($other[15]);//去掉15项
                 //unset($other[18]);//去掉15项
 				$item['other'] = $other;
-
 				//有几个会员卡列表
 				$counts = count($other)-1-20;
 				$rows = $counts/10+1;
@@ -170,20 +170,19 @@ class curlapi{
 				}
 				ksort($other);
 
-
 				for($i=1; $i<=$rows; $i++) {
                     //卡号
-                    $k0 = 6+10*($i-1);
+                    $k0 = 7+10*($i-1);
 					$newdata[$k][0] = "\t".$other[$k0]; //卡号
 					$newdata[$k][1] = $other[2]; //姓名
 					$newdata[$k][2] = $other[1]; //手机号
 					$newdata[$k][3] = $other[3] == '男'?0:1; //性别
 
 					//卡类型
-					$k7 = 7+10*($i-1);
+					$k7 = 9+10*($i-1);
 					$newdata[$k][4] = $other[$k7]; //卡类型
 
-					$newdata[$k][5] = $other[9]; //折扣
+					$newdata[$k][5] = $other[10]; //折扣
 
 					//卡金余额(必填),疗程,
 					$newdata[$k][6] = 0; //卡金余额
@@ -192,7 +191,7 @@ class curlapi{
 					$newdata[$k][10] = 0; //赠送金
 
 					//卡金余额
-					$k6 = 12+10*($i-1);
+					$k6 = 13+10*($i-1);
 					preg_match_all('/(.*)元/isU', $other[$k6], $data1);
 					if(isset($data1[1]) && count($data1[1]) == 2) {
 						$newdata[$k][6] = str_replace('元:', '', $data1[1][0]);
@@ -205,15 +204,15 @@ class curlapi{
 					}
 
 					//充值总额
-					$k7 = 10+10*($i-1);
+					$k7 = 11+10*($i-1);
 					$newdata[$k][7] += str_replace('元', '', $other[$k7]); //充值总额
 
 					//消费总额
-					$k11 = 11+10*($i-1);
+					$k11 = 12+10*($i-1);
 					$newdata[$k][9] += str_replace('元', '', $other[$k11]); //消费总额
 
 					//赠送金
-					$k13 = 13+10*($i-1);
+					$k13 = 14+10*($i-1);
 					$newdata[$k][10] += str_replace('元', '', $other[$k13]); //赠送金
 
 					$k17 = 17+10*($rows-1);
