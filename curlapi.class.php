@@ -169,7 +169,7 @@ class curlapi{
 					$v1= trim(str_replace(PHP_EOL, '', $v1));
 				}
 				ksort($other);
-
+				
 				for($i=1; $i<=$rows; $i++) {
                     //卡号
                     $k0 = 7+10*($i-1);
@@ -179,7 +179,7 @@ class curlapi{
 					$newdata[$k][3] = $other[3] == '男'?0:1; //性别
 
 					//卡类型
-					$k7 = 9+10*($i-1);
+					$k7 = 8+10*($i-1);
 					$newdata[$k][4] = $other[$k7]; //卡类型
 
 					$newdata[$k][5] = $other[10]; //折扣
