@@ -29,7 +29,7 @@ class curlapi{
 		$cookies = $arr[1];
 		//cookies存SESSION
 		session_start();
-		$_SESSION['cookies'] = $cookies;
+		$_SESSION['cookies'] = "realParentShopId=80034; JSESSIONID=B962BEF2BEC1B8F1C807E45C05D03581.tomcat1; code=0831; token=2689cd79-609a-4b8b-8a9d-236ff61fab12; username=%E6%AC%A7%E6%98%8C%E5%88%A9; JSESSIONID=FF1D68BD16ED4149F21C17389DF3CE3C.tomcat1; UM_distinctid=163a5f214d16fb-0c2646d30f33d1-36624209-1fa400-163a5f214d2a21; Hm_lvt_4e5bdf78b2b9fcb88736fc67709f2806=1527497496; Hm_lpvt_4e5bdf78b2b9fcb88736fc67709f2806=1527497977; Hm_lvt_cc903faaed69cca18f7cf0997b2e62c9=1527497391; Hm_lpvt_cc903faaed69cca18f7cf0997b2e62c9=1527497977; CNZZDATA1258534273=1806268035-1527497514-http%253A%252F%252Fvip8.sentree.com.cn%252F%7C1527497995";
 		//截取GIF二进制图片
 		$explode = explode("HttpOnly",$output);
 		return $explode = trim($explode[1]);
