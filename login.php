@@ -30,7 +30,7 @@ if($_GET['action'] == "code"){//获取验证码
         echo 1;
     }
 }else if($_GET['action'] == 'curlmember'){
-    $shopname = '原创北岭店';
+    $shopname = '金莎造型88';
     $data = '';
 
     //获取总数
@@ -41,7 +41,7 @@ if($_GET['action'] == "code"){//获取验证码
     //总页数
     $pages = ceil($totals/100);
     //$pages = 1;
-    for($i=31; $i<=36; $i++){
+    for($i=1; $i<=$pages; $i++){
         $params = "page.currNum=$i&page.rpp=100&set=cash";
         $curl -> params = $params;
         $curl -> url = "http://vip8.sentree.com.cn/shair/memberInfo!memberlist.action?set=cash";
@@ -55,7 +55,7 @@ if($_GET['action'] == "code"){//获取验证码
 
     $curl -> downMembersCvs($data, $shopname);
 }else if($_GET['action'] == 'curlpackage'){
-    $shopname = '原创北岭店';
+    $shopname = '金莎造型88';
     $data = '';
 
     //获取总数
