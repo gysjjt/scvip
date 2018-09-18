@@ -30,7 +30,7 @@ if($_GET['action'] == "code"){//获取验证码
         echo 1;
     }
 }else if($_GET['action'] == 'curlmember'){
-    $shopname = '金莎造型88';
+    $shopname = 'qwer';
     $data = '';
 
     //获取总数
@@ -55,7 +55,7 @@ if($_GET['action'] == "code"){//获取验证码
 
     $curl -> downMembersCvs($data, $shopname);
 }else if($_GET['action'] == 'curlpackage'){
-    $shopname = '金莎造型88';
+    $shopname = 'qwer';
     $data = '';
 
     //获取总数
