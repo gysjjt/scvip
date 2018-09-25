@@ -30,7 +30,7 @@ if($_GET['action'] == "code"){//获取验证码
         echo 1;
     }
 }else if($_GET['action'] == 'curlmember'){
-    $shopname = 'qwer';
+    $shopname = '15992294704';
     $data = '';
 
     //获取总数
