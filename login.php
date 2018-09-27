@@ -30,7 +30,7 @@ if($_GET['action'] == "code"){//获取验证码
         echo 1;
     }
 }else if($_GET['action'] == 'curlmember'){
-    $shopname = '15992294704';
+    $shopname = '青春造型';
     $data = '';
 
     //获取总数
@@ -41,7 +41,7 @@ if($_GET['action'] == "code"){//获取验证码
     //总页数
     $pages = ceil($totals/100);
     //$pages = 1;
-    for($i=1; $i<=$pages; $i++){
+    for($i=1; $i<=15; $i++){
         $params = "page.currNum=$i&page.rpp=100&set=cash";
         $curl -> params = $params;
         $curl -> url = "http://vip8.sentree.com.cn/shair/memberInfo!memberlist.action?set=cash";
