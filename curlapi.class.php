@@ -29,7 +29,7 @@ class curlapi{
         $cookies = $arr[1];
         //cookies存SESSION
         session_start();
-        $_SESSION['cookies'] = "realParentShopId=1013800; JSESSIONID=9D3C05D561BE5DEB12C54CC37ACDCC2B.tomcat1; code=7524; token=dc8982f3-de78-4719-85bc-8f7d5618e23a; username=%E5%BD%AD%E4%B8%96%E6%96%B0%E5%8D%8E%E5%AD%A6%E5%BA%9C%E5%BA%97; Hm_lvt_cc903faaed69cca18f7cf0997b2e62c9=1533346462; UM_distinctid=168301c2f2cba3-0e333736bd04e5-36624209-1fa400-168301c2f2dd0b; JSESSIONID=5303CD33CAFBF979C36F7E44B91B9CCC.tomcat1; Hm_lvt_4e5bdf78b2b9fcb88736fc67709f2806=1546995450; Hm_lpvt_4e5bdf78b2b9fcb88736fc67709f2806=1546995477; CNZZDATA1258534273=22604554-1533037460-%7C1546995480";
+        $_SESSION['cookies'] = "realParentShopId=857651; JSESSIONID=A5599A45B156B62C85AB55DB5F90690D.tomcat1; token=bbc57c0a-d260-4f7f-9c21-7abf3ef5d270; username=%E5%8C%A0%E4%BA%BA%E7%BE%8E%E5%8F%91; Hm_lvt_cc903faaed69cca18f7cf0997b2e62c9=1533346462; UM_distinctid=168301c2f2cba3-0e333736bd04e5-36624209-1fa400-168301c2f2dd0b; Hm_lvt_4e5bdf78b2b9fcb88736fc67709f2806=1552291552; Hm_lpvt_4e5bdf78b2b9fcb88736fc67709f2806=1552291575; CNZZDATA1258534273=22604554-1533037460-%7C1552291576";
         //截取GIF二进制图片
         $explode = explode("HttpOnly",$output);
         return $explode = trim($explode[1]);
